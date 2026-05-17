@@ -1,0 +1,62 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="admin-container">
+  
+  <!-- Sidebar -->
+  <div class="sidebar" [class.closed]="isSidebarClosed">
+    <button class="hamburger" (click)="toggleSidebar()">☰</button>
+    <ul>
+      <div >
+        <img src="/profile.png" alt="profile">
+        <h3>admin</h3>
+      </div>
+      
+      <li [class.active]="selectedMenu === 'dashboard'" (click)="selectMenu('dashboard')">
+        <span *ngIf="!isSidebarClosed">Dashboard</span>
+      </li>
+      <li [class.active]="selectedMenu === 'underwriter'" (click)="selectMenu('underwriter')">
+        <span *ngIf="!isSidebarClosed">Underwriter</span>
+      </li>
+      <!-- <li [class.active]="selectedMenu === 'policy'" (click)="selectMenu('policy')">
+        <span *ngIf="!isSidebarClosed">Policy</span>
+      </li> -->
+      <li [class.active]="selectedMenu === 'category'" (click)="selectMenu('category')">
+        <span *ngIf="!isSidebarClosed">Category</span>
+      </li>
+      <li [class.active]="selectedMenu === 'questions'" (click)="selectMenu('questions')">
+        <span *ngIf="!isSidebarClosed">Questions</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" [class.full-width]="isSidebarClosed">
+    <div class="content-header">
+      <button class="hamburger mobile" (click)="toggleSidebar()">☰</button>
+      <h2>{{ selectedMenu | titlecase }}</h2>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div *ngIf="selectedMenu === 'dashboard'" class="dashboard">
+      <app-admin-dashboard></app-admin-dashboard>
+    </div>
+
+    <!-- Underwriter Section -->
+    <div *ngIf="selectedMenu === 'underwriter'">
+       <app-admin-underwriter></app-admin-underwriter>
+    </div>
+
+    <!-- Policy Section -->
+    <!-- <div *ngIf="selectedMenu === 'policy'">
+       <app-admin-policy></app-admin-policy>
+    </div> -->
+        <!-- Category Section -->
+    <div *ngIf="selectedMenu === 'category'">
+          <app-admin-category></app-admin-category>
+    </div>
+            <!-- Questions Section -->
+    <div *ngIf="selectedMenu === 'questions'">
+      <p>Manage policies here.</p>
+    </div>
+  </div>
+</div>

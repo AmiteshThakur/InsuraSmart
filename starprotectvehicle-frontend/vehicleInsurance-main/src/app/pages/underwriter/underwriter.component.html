@@ -1,0 +1,63 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="underwriter-container">
+  
+  <!-- Sidebar -->
+  <div class="sidebar" [class.closed]="isSidebarClosed">
+    <button class="hamburger" (click)="toggleSidebar()">☰</button>
+    <ul>
+      <div >
+        <img src="/profile.png" alt="profile">
+        <h3>underwriter</h3>
+      </div>
+      
+      <li [class.active]="selectedMenu === 'dashboard'" (click)="selectMenu('dashboard')">
+        <span *ngIf="!isSidebarClosed">Dashboard</span>
+      </li>
+      <li [class.active]="selectedMenu === 'vehicle insurance'" (click)="selectMenu('vehicle insurance')">
+        <span *ngIf="!isSidebarClosed">Vehicle Insurance</span>
+      </li>
+      <!-- <li [class.active]="selectedMenu === 'history'" (click)="selectMenu('history')">
+        <span *ngIf="!isSidebarClosed">History</span>
+      </li> -->
+      <li [class.active]="selectedMenu === 'ask question'" (click)="selectMenu('ask question')">
+        <span *ngIf="!isSidebarClosed">Ask Question</span>
+      </li>
+      <li [class.active]="selectedMenu === 'questions history'" (click)="selectMenu('questions history')">
+        <span *ngIf="!isSidebarClosed">Questions History</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" [class.full-width]="isSidebarClosed">
+    <div class="content-header">
+      <button class="hamburger mobile" (click)="toggleSidebar()">☰</button>
+      <h2>{{ selectedMenu | titlecase }}</h2>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div *ngIf="selectedMenu === 'dashboard'" class="dashboard">
+       <app-underwriter-dashboard></app-underwriter-dashboard>
+    </div>
+
+    <!-- Underwriter Section -->
+    <div *ngIf="selectedMenu === 'vehicle insurance'">
+       <app-underwriter-vehicle-insurance></app-underwriter-vehicle-insurance>
+    </div>
+
+    <!-- history Section -->
+    <!-- <div *ngIf="selectedMenu === 'history'">
+       <app-admin-policy></app-admin-policy>
+    </div> -->
+        <!-- Category Section -->
+    <div *ngIf="selectedMenu === 'ask question'">
+          <!-- <app-admin-category></app-admin-category> -->
+    </div>
+            <!-- Questions Section -->
+    <div *ngIf="selectedMenu === 'questions history'">
+      <p>Manage policies here.</p>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet> 

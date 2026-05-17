@@ -1,0 +1,91 @@
+
+  /* ///vvvvvvvvvvvvvvvvvvvvv// */
+
+  /* Full-page background with smooth overlay */
+.home-container {
+    height: 88vh;
+    background: url('../../../../public/image2.png') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* color: white; */
+    color: black;
+    position: relative;
+  }
+  
+  /* Gradient overlay for better contrast */
+  .overlay {
+    background: rgba(8, 8, 8, 0.297);
+    /* background: transparent; */
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 80%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Smooth fade-in effect */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Heading style */
+  .overlay h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Paragraph text */
+  .overlay p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 0.9;
+  }
+  
+  /* Login button with hover effects */
+  .login-btn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+  }
+  
+  .login-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .overlay {
+      max-width: 90%;
+      padding: 30px;
+    }
+  
+    .overlay h1 {
+      font-size: 2rem;
+    }
+  
+    .overlay p {
+      font-size: 1rem;
+    }
+  
+    .login-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }
+  
